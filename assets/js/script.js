@@ -73,8 +73,8 @@ if (allSearches === null) {
 
 document.addEventListener("click", function (event) {
   if (event.target && event.target.id === "previousBtn") {
-      var btnText=event.target.textContent;
-      gatherCity(btnText)
+    var btnText = event.target.textContent;
+    gatherCity(btnText);
   }
 });
 
