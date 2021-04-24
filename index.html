@@ -18,11 +18,10 @@
       <h1>Weather Dashboard</h1>
     </header>
     <main>
-
       <!--------------------------Search Form------------------------>
       <div class="search-container">
         <form id="user-form" class="city-search">
-          <label for="citySearch" class="form-label">Search City Weather</label>
+          <label for="citySearch" class="form-label">Search for City</label>
           <input
             name="citySearch"
             id="citySearch"
@@ -30,24 +29,24 @@
             class="form-input"
           />
           <button id="search-button" type="submit" class="btn">Search</button>
+          <btn class ="btn" id="clear-searches">Clear Searches</btn>
         </form>
-
-         <!--------------------------Weather Cards------------------------>
-        <div id="saved-Cities">
-          placeholder for saved cities
+        <!--------------------------Saved Searches------------------------>
+        <div id ="saved-searches">
         </div>
+
+        <!--------------------------Weather Cards------------------------>
+        <div id="saved-cities">placeholder for saved cities</div>
       </div>
 
       <div id="current-conditions">
         <h2 id="cityName"></h2>
         <h3 id="cityTemp"></h3>
-          <h4 id="cityTempHigh"></h4>
-          <h4 id="cityTempLow"></h4>
+        <h4 id="cityTempHigh"></h4>
+        <h4 id="cityTempLow"></h4>
         <h3 id="cityWind"></h3>
         <h3 id="cityHumidity"></h3>
         <h3 id="cityUvi"></h3>
-
-
       </div>
 
       <div id="five-day-forecast">
@@ -60,12 +59,9 @@
     </main>
 
     <footer>
-      <h4>
-        Made by Robert Schwartz 2021
-      </h4>
+      <h4>Made by Robert Schwartz 2021</h4>
     </footer>
 
- 
     <script src="assets/js/script.js"></script>
   </body>
 </html>
