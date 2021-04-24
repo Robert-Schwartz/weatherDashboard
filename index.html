@@ -7,14 +7,61 @@
     <title>Weather Dashboard</title>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="assets/style/style.css" />
   </head>
   <body>
     <header>
       <h1>Weather Dashboard</h1>
     </header>
+    <main>
+
+      <!--------------------------Search Form------------------------>
+      <div class="search-container">
+        <form id="user-form" class="city-search">
+          <label for="citySearch" class="form-label">Search City Weather</label>
+          <input
+            name="citySearch"
+            id="citySearch"
+            type="text"
+            class="form-input"
+          />
+          <button type="submit" class="btn">Search</button>
+        </form>
+
+         <!--------------------------Weather Cards------------------------>
+        <div id="saved-Cities">
+          placeholder for saved cities
+        </div>
+      </div>
+
+      <div id="current-conditions">
+        placeholder for current city conditions
+      </div>
+
+      <div id="five-day-forecast-cards">
+        <div id="day1">Day 1</div>
+        <div id="day2">Day 2</div>
+        <div id="day3">Day 3</div>
+        <div id="day4">Day 4</div>
+        <div id="day5">Dday 5</div>
+      </div>
+    </main>
+
+    <footer>
+      <h4>
+        Made by Robert Schwartz 2021
+      </h4>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
