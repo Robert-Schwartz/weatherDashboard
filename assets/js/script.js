@@ -1,11 +1,18 @@
-//---------------API's--------------------
+//---------------API Key--------------------
 var apiKey = "831c11d2cb8f0310ab1b8fd1a37234be";
 
 
 
 //---------------HTML Selectors--------------------
 var searchButton = document.querySelector("#search-button");
-var searchInput = document.querySelector("#citySearch")
+var searchInput = document.querySelector("#citySearch");
+var showName = document.querySelector("#cityName");
+var showTemp = document.querySelector("#cityTemp");
+var showTempHigh = document.querySelector("#cityTempHigh");
+var showTempLow = document.querySelector("#cityTempLow");
+var showWind = document.querySelector("#cityWind");
+var showHumidity = document.querySelector("#cityHumidity");
+var showUvi = document.querySelector("#cityUvi");
 
 
 
@@ -25,7 +32,12 @@ function gatherCity(cityName) {
     .then(data => {
         console.log(data);
         makeOneCall(data.coord.lat,data.coord.lon);
-        document.querySelector("#cityName").textContent=data.name;
+        showName.textContent=data.name;
+        showTemp.textContent="Temp: " + data.main.temp + " F";
+        showTempHigh.textContent="High: " + data.main.temp_max + " F";
+        showTempLow.textContent="Low: " + data.main.temp_min + "  F";
+        showWind.textContent="Wind Speed: " + data.wind.speed + " MPH";
+        showHumidity.textContent="Humidity: " + data.main.humidity + " %";
     })
 }
 
@@ -35,7 +47,8 @@ function makeOneCall(lat,lon) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        //get uvi in here inside the current 
+        showUvi.textContent="UV index: " + data.current.uvi;
+        
     })
 }
 
