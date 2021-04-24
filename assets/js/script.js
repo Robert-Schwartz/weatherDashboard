@@ -1,9 +1,7 @@
-//---------------API Key--------------------
+//---------------API Key-----------------------
 var apiKey = "831c11d2cb8f0310ab1b8fd1a37234be";
 
-
-
-//---------------HTML Selectors--------------------
+//---------------HTML Selectors--------------------------------
 var searchButton = document.querySelector("#search-button");
 var searchInput = document.querySelector("#citySearch");
 var showName = document.querySelector("#cityName");
@@ -14,7 +12,8 @@ var showWind = document.querySelector("#cityWind");
 var showHumidity = document.querySelector("#cityHumidity");
 var showUvi = document.querySelector("#cityUvi");
 
-
+//---------------on page reload, clear local storage---------------
+localStorage.clear();
 
 //---------------Search for a city---------------
 searchButton.addEventListener("click",function(event){
