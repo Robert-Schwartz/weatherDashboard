@@ -29,7 +29,7 @@
             type="text"
             class="form-input"
           />
-          <button type="submit" class="btn">Search</button>
+          <button id="search-button" type="submit" class="btn">Search</button>
         </form>
 
          <!--------------------------Weather Cards------------------------>
@@ -39,10 +39,10 @@
       </div>
 
       <div id="current-conditions">
-        placeholder for current city conditions
+        <h1 id="cityName"></h1>
       </div>
 
-      <div id="five-day-forecast-cards">
+      <div id="five-day-forecast">
         <div id="day1">Day 1</div>
         <div id="day2">Day 2</div>
         <div id="day3">Day 3</div>
@@ -57,11 +57,7 @@
       </h4>
     </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+ 
     <script src="assets/js/script.js"></script>
   </body>
 </html>
