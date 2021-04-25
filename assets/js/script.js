@@ -67,9 +67,10 @@ if (allSearches === null) {
     var historyBtn = document.createElement("button");
     historyBtn.textContent = allSearches[i];
     historyBtn.id = "previousBtn";
+    historyBtn.classList = "btn-secondary";
     searchHistory.appendChild(historyBtn);
   }
-}
+} 
 
 document.addEventListener("click", function (event) {
   if (event.target && event.target.id === "previousBtn") {

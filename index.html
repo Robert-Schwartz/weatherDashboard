@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="assets/style/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Weather Dashboard</h1>
+    <div class="container-xl">
+      <header class="row">
+      <h1 class="col-lg-12">Weather Dashboard</h1>
     </header>
     <main>
       <!--------------------------Search Form------------------------>
@@ -28,18 +29,21 @@
             type="text"
             class="form-input"
           />
-          <button id="search-button" type="submit" class="btn">Search</button>
-          <btn class ="btn" id="clear-searches">Clear Searches</btn>
+          <button id="search-button" type="submit" class="btn btn-primary col-2">Search</button>
+          <btn class ="btn btn-dark" id="clear-searches">Clear Searches</btn>
         </form>
+        </div>
         <!--------------------------Saved Searches------------------------>
-        <div id ="saved-searches">
+        <class class="row">
+        <h2> Saved Searches</h2>
+        <div id ="saved-searches" class="btn-group-vertical">
         </div>
 
-        <!--------------------------Weather Cards------------------------>
-        <div id="saved-cities">placeholder for saved cities</div>
-      </div>
+        <!--------------------------Current Weather------------------------>
+      
+     
 
-      <div id="current-conditions">
+      <div  class="col-5" id="current-conditions">
         <h2 id="cityName"></h2>
         <h3 id="cityTemp"></h3>
         <h4 id="cityTempHigh"></h4>
@@ -49,17 +53,14 @@
         <h3 id="cityUvi"></h3>
       </div>
 
-      <div id="five-day-forecast">
-        <div id="day1">Day 1</div>
-        <div id="day2">Day 2</div>
-        <div id="day3">Day 3</div>
-        <div id="day4">Day 4</div>
-        <div id="day5">Day 5</div>
-      </div>
-    </main>
+    </div>
 
+
+  <!--------------------------Weather Cards------------------------>
+
+    </main>
+    </div>
     <footer>
-      <h4>Made by Robert Schwartz 2021</h4>
     </footer>
 
     <script src="assets/js/script.js"></script>
