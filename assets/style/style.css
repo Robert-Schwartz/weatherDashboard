@@ -2,9 +2,41 @@
     color: #7510f7;
 }
 
+
+
 footer {
     background-color: black;
     text-align: center;
     color: white;
     
 }
+
+.city {
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+}
+
+
+.high {
+    color:red;
+}
+
+.low {
+    color:royalblue;
+}
+
+.favorable {
+    color: lightgreen;
+    border: 1px solid black;
+  }
+  
+  .moderate {
+    color: orange;
+    border: 1px solid black;
+  }
+  
+  .severe {
+   color: red;
+    border: 1px solid black;
+  }

@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="assets/style/style.css" />
   </head>
   <body>
-    <div class="container-xl">
-      <header class="row">
-      <h1 class="col-lg-12">Weather Dashboard</h1>
+      <header class="navbar-fixed-top">
+      <h1 class="col-lg-12 row" >Weather Dashboard</h1>
     </header>
+    <div class="container-md">
     <main>
       <!--------------------------Search Form------------------------>
-      <div class="search-container">
-        <form id="user-form" class="city-search">
-          <label for="citySearch" class="form-label">Search for City</label>
+      <div class="search-container row">
+        <form id="user-form" class="city-search row">
+          <label for="citySearch" class="form-label col-4">Search for City</label>
           <input
             name="citySearch"
             id="citySearch"
@@ -30,35 +30,36 @@
             class="form-input"
           />
           <button id="search-button" type="submit" class="btn btn-primary col-2">Search</button>
-          <btn class ="btn btn-dark" id="clear-searches">Clear Searches</btn>
+          <btn class ="btn btn-dark col-10" id="clear-searches">Clear Searches</btn>
         </form>
         </div>
         <!--------------------------Saved Searches------------------------>
-        <class class="row">
-        <h2> Saved Searches</h2>
+        <h2 class ="col"> Saved Searches</h2>
         <div id ="saved-searches" class="btn-group-vertical">
         </div>
-
         <!--------------------------Current Weather------------------------>
-    
-      <div  class="col-5" id="current-conditions">
-        <h2 id="cityName"></h2>
-        <h3 id="cityTemp"></h3>
-        <h4 id="cityTempHigh"></h4>
-        <h4 id="cityTempLow"></h4>
-        <h3 id="cityWind"></h3>
-        <h3 id="cityHumidity"></h3>
-        <h3 id="cityUvi"></h3>
+            <h2 id="cityName" class="city"></h2>       
+            <h3 id="cityTemp" class="temp"></h3>
+            <h5 id="cityTempHigh"class = "high"></h5>
+            <h5 id="cityTempLow" class = "low"></h5>
+            <h3 id="cityWind" </h3>
+            <h3 id="cityHumidity"></h3>
+             <h3 id="cityUvi"></h3>  
+      </div>
       </div>
     </div>
-
-
   <!--------------------------Weather Cards------------------------>
-    </main>
+    
+</main>
     </div>
-    <footer>
+    <footer class="navbar-fixed-bottom">
+    Made by Robert Schwartz 2021
     </footer>
-
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

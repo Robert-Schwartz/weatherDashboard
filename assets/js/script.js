@@ -45,7 +45,7 @@ function gatherCity(cityName) {
       showHumidity.textContent = "Humidity: " + data.main.humidity + " %";
     });
 }
-
+//----------------UVI index formatting-----------------------
 function makeOneCall(lat, lon) {
   var oneCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&appid=${apiKey}&units=imperial`;
   fetch(oneCall)
@@ -53,6 +53,13 @@ function makeOneCall(lat, lon) {
     .then((data) => {
       console.log(data);
       showUvi.textContent = "UV index: " + data.current.uvi;
+      if (showUvi <= 2) {
+        showUvi.classList = ".favorable";
+      } else if (showUvi >= 3 && oneCall.current.uvi <= 5) {
+        showUvi.classList.add = ".moderate";
+      } else {
+        showUvi.classList.add = ".severe";
+      }
     });
 }
 
@@ -70,7 +77,7 @@ if (allSearches === null) {
     historyBtn.classList = "btn-secondary";
     searchHistory.appendChild(historyBtn);
   }
-} 
+}
 
 document.addEventListener("click", function (event) {
   if (event.target && event.target.id === "previousBtn") {
@@ -85,10 +92,5 @@ clearSearches.addEventListener("click", function () {
   searchHistory.innerHTML = "";
 });
 
-/*---------------display weather conditions, name, date, weather icon, temperature, humidity, wind speed, UV index---------------*/
-
-//---------------uv index conditional to display favorable, moderate, or severe---------------
 
 //---------------display 5 day forecast---------------
-
-//---------------click on search history to change displayed city---------------
