@@ -83,7 +83,28 @@ function searchWeather5day(fiveDay) {
       cardHead1.textContent = data.city.name;
       let p1 = document.querySelector("#cardTextId1");
       p1.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
-  }}//do this X5
+  
+      let cardHead2 = document.querySelector("#cardTitleId2");
+      cardHead1.textContent = data.city.name;
+      let p2 = document.querySelector("#cardTextId2");
+      p2.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+ 
+      let cardHead3 = document.querySelector("#cardTitleId3");
+      cardHead3.textContent = data.city.name;
+      let p3 = document.querySelector("#cardTextId3");
+      p3.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+    
+      let cardHead4 = document.querySelector("#cardTitleId4");
+      cardHead4.textContent = data.city.name;
+      let p4 = document.querySelector("#cardTextId4");
+      p4.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+
+      let cardHead5 = document.querySelector("#cardTitleId5");
+      cardHead5.textContent = data.city.name;
+      let p5 = document.querySelector("#cardTextId5");
+      p5.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+
+    }}//do this X5
 
 //---------------Add city to search history---------------
 var allSearches = localStorage.getItem("value");
