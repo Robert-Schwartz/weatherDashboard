@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,89 +12,106 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/style/style.css" />
-  </head>
-  <body>
-      <header class="navbar-fixed-top">
-      <h1 class="col-lg-12 row" >Weather Dashboard</h1>
-    </header>
-    <div class="container-md">
-    <main>
+</head>
+
+
+<body>
+    <!-----------------------------Header----------------------->
+    
+    
+        <header>
+          <h1 id="header">Weather Dashboard</h1>
+        </header>
+      
+
+    <main class="container">
       <!--------------------------Search Form------------------------>
-      <div class="search-container row">
-        <form id="user-form" class="city-search row">
-          <label for="citySearch" class="form-label col-4">Search for City</label>
-          <input
-            name="citySearch"
-            id="citySearch"
-            type="text"
-            class="form-input"
-          />
-          <button id="search-button" type="submit" class="btn btn-primary col-2">Search</button>
-          <btn class ="btn btn-dark col-10" id="clear-searches">Clear Searches</btn>
-        </form>
-        </div>
+
+      <div class="row" id="searchRow">
+        <div class=col-sm-3">
+          <form id="user-form">
+            <label for="citySearch" class="form-label col-4">Search for City:</label>
+              <input
+               name="citySearch"
+                id="citySearch"
+                type="text"
+                class="form-input"
+              />
+            <button id="search-button" type="submit" class="btn btn-primary col-2">Search</button>
+            <btn class ="btn btn-dark col-10" id="clear-searches">
+              Clear Searches
+            </btn>
+            </form>
+          </div>
+      </div>
+ <!--------------------------Current Weather------------------------>
+ <div class="col">
+  <h2 id="cityName" class="city"></h2>       
+   <h3 id="cityTemp" class="temp"></h3>
+     <h5 id="cityTempHigh"class = "high"></h5>
+      <h5 id="cityTempLow" class = "low"></h5>
+  <h3 id="cityWind"></h3>
+  <h3 id="cityHumidity"></h3>
+     <h3 id="cityUvi"></h3>  
+</div>     
+
         <!--------------------------Saved Searches------------------------>
-        <h2 class ="col"> Saved Searches</h2>
-        <div id ="saved-searches" class="btn-group-vertical">
+        <div class ="row" id="displayCurrent">
+          <h2> Saved Searches</h2>
         </div>
-        <!--------------------------Current Weather------------------------>
-            <h2 id="cityName" class="city"></h2>       
-            <h3 id="cityTemp" class="temp"></h3>
-            <h5 id="cityTempHigh"class = "high"></h5>
-            <h5 id="cityTempLow" class = "low"></h5>
-            <h3 id="cityWind" </h3>
-            <h3 id="cityHumidity"></h3>
-             <h3 id="cityUvi"></h3>  
-      </div>
-      </div>
-    </div>
+        <div class="row">
+          <div id ="saved-searches"></div>
+        </div>
+         
+      
+   
   <!--------------------------Five Day Cards------------------------>
   <div class="row" id="fiveDayRow">
     <h2>5-Day Forecast</h2>
-</div>
+  </div>
 <div class="row" id="fiveDayBoxRow">
-    <div class class="col-2" id="dayOne">
+    <div class="col-sm-2" id="dayOne">
         <div class="card">
-            <img class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title" id="cardTitleId1"></h5>
                 <p class="card-text" id="cardTextId1"> </p>
             </div>
+        </div>
     </div>
-    <div class class="col-2" id="dayTwo">
+    <div class="col-sm-2" id="dayTwo">
       <div class="card">
-          <img class="card-img-top">
           <div class="card-body">
               <h5 class="card-title" id="cardTitleId2"></h5>
               <p class="card-text" id="cardTextId2"> </p>
           </div>
-          <div class class="col-2" id="dayThree">
-            <div class="card">
-                <img class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title" id="cardTitleId3"></h5>
-                    <p class="card-text" id="cardTextId3"> </p>
-                </div>
-                <div class class="col-2" id="dayFour">
-                  <div class="card">
-                      <img class="card-img-top">
-                      <div class="card-body">
-                          <h5 class="card-title" id="cardTitleId4"></h5>
-                          <p class="card-text" id="cardTextId4"> </p>
-                      </div>
-              </div>
-              <div class class="col-2" id="dayFive">
-                <div class="card">
-                    <img class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title" id="cardTitleId5"></h5>
-                        <p class="card-text" id="cardTextId5"> </p>
-                    </div>
-            </div>
-        </div>
-  </div>
+      </div>
+    </div>
+    <div class="col-sm-2" id="dayThree">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title" id="cardTitleId3"></h5>
+              <p class="card-text" id="cardTextId3"> </p>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-2" id="dayFour">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title" id="cardTitleId4"></h5>
+              <p class="card-text" id="cardTextId4"> </p>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-2" id="dayFive">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title" id="cardTitleId5"></h5>
+              <p class="card-text" id="cardTextId5"> </p>
+          </div>
+      </div>
+    </div>
+
     
-</div>
 <!------------------------------------------------------->
 </main>
     </div>

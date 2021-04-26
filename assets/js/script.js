@@ -3,18 +3,18 @@ var apiKey = "831c11d2cb8f0310ab1b8fd1a37234be";
 //---------------Global Variables-----------------------
 
 //---------------HTML Selectors--------------------------------
-var searchButton = document.querySelector("#search-button");
-var searchInput = document.querySelector("#citySearch");
-var clearSearches = document.querySelector("#clear-searches");
-var searchHistory = document.querySelector("#saved-searches");
-var savedSearches = document.querySelector("#saved-cities");
-var showName = document.querySelector("#cityName");
-var showTemp = document.querySelector("#cityTemp");
-var showTempHigh = document.querySelector("#cityTempHigh");
-var showTempLow = document.querySelector("#cityTempLow");
-var showWind = document.querySelector("#cityWind");
-var showHumidity = document.querySelector("#cityHumidity");
-var showUvi = document.querySelector("#cityUvi");
+let searchInput = document.querySelector("#citySearch");
+let searchButton = document.querySelector("#search-button");
+let clearSearches = document.querySelector("#clear-searches");
+let searchHistory = document.querySelector("#saved-searches");
+let savedSearches = document.querySelector("#saved-cities");
+let showName = document.querySelector("#cityName");
+let showTemp = document.querySelector("#cityTemp");
+let showTempHigh = document.querySelector("#cityTempHigh");
+let showTempLow = document.querySelector("#cityTempLow");
+let showWind = document.querySelector("#cityWind");
+let showHumidity = document.querySelector("#cityHumidity");
+let showUvi = document.querySelector("#cityUvi");
 
 //---------------Search for a city---------------
 searchButton.addEventListener("click", function (event) {
@@ -28,6 +28,28 @@ searchButton.addEventListener("click", function (event) {
   historyBtn.id = "previousBtn";
   searchHistory.appendChild(historyBtn);
   searchWeather5day(cityInput); 
+});
+
+//---------------Add city to search history---------------
+var allSearches = localStorage.getItem("value");
+allSearches = JSON.parse(allSearches);
+if (allSearches === null) {
+  allSearches = [];
+} else {
+  for (let i = 0; i < allSearches.length; i++) {
+    var historyBtn = document.createElement("button");
+    historyBtn.textContent = allSearches[i];
+    historyBtn.id = "previousBtn";
+    historyBtn.classList = "btn-secondary";
+    searchHistory.appendChild(historyBtn);
+  }
+}
+
+document.addEventListener("click", function (event) {
+  if (event.target && event.target.id === "previousBtn") {
+    var btnText = event.target.textContent;
+    gatherCity(btnText);
+  }
 });
 
 //---------------Pull Weather Data from oneCall API---------------
@@ -72,12 +94,7 @@ function searchWeather5day(fiveDay) {
           return response.json();
       }).then(data => {
           draw5Weather(data);
-          console.log("!" + fiveDay);
       })
-      // .catch(err => {
-      //     console.error(err);
-      ;
-
   function draw5Weather(data) {
       let cardHead1 = document.querySelector("#cardTitleId1");
       cardHead1.textContent = data.city.name;
@@ -85,7 +102,7 @@ function searchWeather5day(fiveDay) {
       p1.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
   
       let cardHead2 = document.querySelector("#cardTitleId2");
-      cardHead1.textContent = data.city.name;
+      cardHead2.textContent = data.city.name;
       let p2 = document.querySelector("#cardTextId2");
       p2.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
  
@@ -104,29 +121,9 @@ function searchWeather5day(fiveDay) {
       let p5 = document.querySelector("#cardTextId5");
       p5.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
 
-    }}//do this X5
+    }}
 
-//---------------Add city to search history---------------
-var allSearches = localStorage.getItem("value");
-allSearches = JSON.parse(allSearches);
-if (allSearches === null) {
-  allSearches = [];
-} else {
-  for (let i = 0; i < allSearches.length; i++) {
-    var historyBtn = document.createElement("button");
-    historyBtn.textContent = allSearches[i];
-    historyBtn.id = "previousBtn";
-    historyBtn.classList = "btn-secondary";
-    searchHistory.appendChild(historyBtn);
-  }
-}
 
-document.addEventListener("click", function (event) {
-  if (event.target && event.target.id === "previousBtn") {
-    var btnText = event.target.textContent;
-    gatherCity(btnText);
-  }
-});
 
 //---------------Clear search history---------------
 clearSearches.addEventListener("click", function () {
