@@ -27,6 +27,7 @@ searchButton.addEventListener("click", function (event) {
   historyBtn.textContent = allSearches[allSearches.length - 1];
   historyBtn.id = "previousBtn";
   searchHistory.appendChild(historyBtn);
+  searchWeather5day(cityInput); 
 });
 
 //---------------Pull Weather Data from oneCall API---------------
@@ -53,7 +54,7 @@ function makeOneCall(lat, lon) {
     .then((data) => {
       console.log(data);
       showUvi.textContent = "UV index: " + data.current.uvi;
-      if (showUvi <= 2) {
+      if (showUvi =="3.12") {
         showUvi.classList = ".favorable";
       } else if (showUvi >= 3 && oneCall.current.uvi <= 5) {
         showUvi.classList.add = ".moderate";
@@ -62,11 +63,31 @@ function makeOneCall(lat, lon) {
       }
     });
 }
+//---------------display 5 day forecast---------------
+function searchWeather5day(fiveDay) {
+  fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${fiveDay}&appid=${apiKey}`
+  )
+      .then(response => {
+          return response.json();
+      }).then(data => {
+          draw5Weather(data);
+          console.log("!" + fiveDay);
+      })
+      // .catch(err => {
+      //     console.error(err);
+      ;
+
+  function draw5Weather(data) {
+      let cardHead1 = document.querySelector("#cardTitleId1");
+      cardHead1.textContent = data.city.name;
+      let p1 = document.querySelector("#cardTextId1");
+      p1.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+  }}//do this X5
 
 //---------------Add city to search history---------------
 var allSearches = localStorage.getItem("value");
 allSearches = JSON.parse(allSearches);
-console.log(allSearches);
 if (allSearches === null) {
   allSearches = [];
 } else {
@@ -92,5 +113,3 @@ clearSearches.addEventListener("click", function () {
   searchHistory.innerHTML = "";
 });
 
-
-//---------------display 5 day forecast---------------
