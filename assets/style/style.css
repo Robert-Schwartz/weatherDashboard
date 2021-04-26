@@ -6,7 +6,7 @@
 
 header {
     text-align: center;
-    background-color:black;
+    background-color:rgba(69, 136, 69, 0.8);
     padding: 15px;
 }
 
@@ -16,11 +16,15 @@ header h1 {
 }
 
 footer {
-    background-color: black;
+    background-color:rgba(69, 136, 69, 0.8);
     text-align: center;
     color: white;
     margin-top: 50px;
-    
+    padding: 025px;
+    position: sticky;
+    position:bottom;
+    z-index: 99999;
+
 }
 
 #displayCurrent {
