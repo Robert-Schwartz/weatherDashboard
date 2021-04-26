@@ -88,7 +88,7 @@ function makeOneCall(lat, lon) {
 //---------------display 5 day forecast---------------
 function searchWeather5day(fiveDay) {
   fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${fiveDay}&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/forecast?q=${fiveDay}&appid=${apiKey}&units=imperial`
   )
       .then(response => {
           return response.json();
