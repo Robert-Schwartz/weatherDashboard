@@ -31,7 +31,7 @@ searchButton.addEventListener("click", function (event) {
 });
 
 //---------------Add city to search history---------------
-var allSearches = localStorage.getItem("value");
+var allSearches  = localStorage.getItem("value");
 allSearches = JSON.parse(allSearches);
 if (allSearches === null) {
   allSearches = [];
@@ -56,7 +56,10 @@ document.addEventListener("click", function (event) {
 function gatherCity(cityName) {
   var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
   fetch(currentWeatherApi)
-    .then((response) => response.json())
+    .then((response) => {
+      console.log(response)
+      return response.json()})
+
     .then((data) => {
       console.log(data);
       makeOneCall(data.coord.lat, data.coord.lon);
@@ -73,6 +76,16 @@ function makeOneCall(lat, lon) {
   var oneCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&appid=${apiKey}&units=imperial`;
   fetch(oneCall)
     .then((response) => response.json())
+
+    /*  regular function equivalent of the arrow function above:
+    .then(function(response) {
+      return response.json()
+    }) */
+    
+
+
+
+
     .then((data) => {
       console.log(data);
       showUvi.textContent = "UV index: " + data.current.uvi;
@@ -104,22 +117,22 @@ function searchWeather5day(fiveDay) {
       let cardHead2 = document.querySelector("#cardTitleId2");
       cardHead2.textContent = data.city.name;
       let p2 = document.querySelector("#cardTextId2");
-      p2.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+      p2.textContent ="Temp:    " + data.list[1].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
  
       let cardHead3 = document.querySelector("#cardTitleId3");
       cardHead3.textContent = data.city.name;
       let p3 = document.querySelector("#cardTextId3");
-      p3.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+      p3.textContent ="Temp:    " + data.list[2].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
     
       let cardHead4 = document.querySelector("#cardTitleId4");
       cardHead4.textContent = data.city.name;
       let p4 = document.querySelector("#cardTextId4");
-      p4.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+      p4.textContent ="Temp:    " + data.list[3].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
 
       let cardHead5 = document.querySelector("#cardTitleId5");
       cardHead5.textContent = data.city.name;
       let p5 = document.querySelector("#cardTextId5");
-      p5.textContent ="Temp:    " + data.list[0].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
+      p5.textContent ="Temp:    " + data.list[4].main.temp +   "Humidity     "  + data.list[0].main.humidity + "   Wind:       " + data.list[0].wind.speed;
 
     }}
 
